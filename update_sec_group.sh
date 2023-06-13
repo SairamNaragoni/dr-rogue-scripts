@@ -1,0 +1,17 @@
+#! /bin/bash
+
+source config.env
+
+# gets current date and prepares description for sec group rule
+CURRENT_DATE=$(date +'%Y-%m-%d')
+SEC_GROUP_RULE_DESCRIPTION="dynamic ip updated - ${CURRENT_DATE}"
+
+# gets current I.P. and adds /32 for ipv4 cidr
+CURRENT_IP=$(curl --silent https://checkip.amazonaws.com)
+NEW_IPV4_CIDR="${CURRENT_IP}"/32
+
+# updates I.P. and description in the sec group rule
+aws ec2 modify-security-group-rules --group-id ${SECURITY_GROUP_ID} --security-group-rules SecurityGroupRuleId=${SECURITY_GROUP_RULE_ID},SecurityGroupRule="{CidrIpv4=${NEW_IPV4_CIDR}, IpProtocol=tcp,FromPort=22,ToPort=22,Description=${SEC_GROUP_RULE_DESCRIPTION}}"
+
+# shows the sec group rule updated
+aws ec2 describe-security-group-rules --filter Name="security-group-rule-id",Values="${SECURITY_GROUP_RULE_ID}"
