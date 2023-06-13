@@ -1,7 +1,5 @@
 #! /bin/bash
 
-source config.env
-
 instance_name="${1:-rogue}"
 cf_dir="${2:-custom_files}"
 
