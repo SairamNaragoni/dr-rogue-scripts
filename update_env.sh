@@ -7,7 +7,7 @@ cf_dir="${2:-custom_files}"
 
 [ ! -d $cf_dir ] && mkdir $cf_dir
 
-aws s3 sync $S3_BASE_URI/$cf_dir/ $cf_dir
+aws s3 sync $S3_BASE_URI/$cf_dir $cf_dir
 
 public_dns_name=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${instance_name}" --query 'Reservations[*].Instances[*].[PublicDnsName]' --output text | tr -d '\n')
 
