@@ -1,5 +1,7 @@
 #! /bin/bash
 
+source config.conf
+
 instance_name=${1:-rogue}
 instance_type=${1:-"g4dn.4xlarge"}
 

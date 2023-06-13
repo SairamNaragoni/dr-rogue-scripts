@@ -1,5 +1,7 @@
 #! /bin/bash
 
+source config.conf
+
 # gets current date and prepares description for sec group rule
 CURRENT_DATE=$(date +'%Y-%m-%d')
 SEC_GROUP_RULE_DESCRIPTION="dynamic ip updated - ${CURRENT_DATE}"
