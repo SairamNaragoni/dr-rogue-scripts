@@ -10,6 +10,5 @@ aws ec2 run-instances --image-id $IMAGE_ID --count 1 --instance-type $instance_t
 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=\"$instance_name\"}]"  \
 --iam-instance-profile Name=$IAM_ROLE \
 --instance-market-options "MarketType=spot,SpotOptions={SpotInstanceType=one-time,InstanceInterruptionBehavior=terminate}" \
---user-data '#!/bin/bash\ndr-update && dr-start-training'
 
 ./update_sec_group.sh

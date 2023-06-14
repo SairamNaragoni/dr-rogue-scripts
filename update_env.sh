@@ -14,5 +14,3 @@ public_dns_name=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${i
 scp -i $KEY_PAIR.pem update_images.sh ubuntu@"$public_dns_name":/home/ubuntu/update_images.sh
 scp -i $KEY_PAIR.pem $cf_dir/run.env ubuntu@"$public_dns_name":/home/ubuntu/deepracer-for-cloud/
 scp -i $KEY_PAIR.pem $cf_dir/system.env ubuntu@"$public_dns_name":/home/ubuntu/deepracer-for-cloud/
-
-./ssh_into_rogue.sh $instance_name
