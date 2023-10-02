@@ -1,0 +1,10 @@
+#!/bin/bash
+
+IMAGE_ID=ami-0d8fc6ae26de60f2a
+SECURITY_GROUP_ID=sg-0bbafcf17ae9ebdbd
+SECURITY_GROUP_RULE_ID=sgr-0e88788bf15bb1dd3
+SUBNET_ID=subnet-02a50e6e01e24b68f
+IAM_ROLE=DRFCRole
+S3_BASE_URI=s3://rogue-23/
+KEY_PAIR=Rogue23
+GIT_TOKEN=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

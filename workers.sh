@@ -7,3 +7,5 @@ OFFSET=$2
 cp worker-2.env
 
 sed -i~ '/^TEST_VAR=/s/=.*/="UpdateValue"/' file.env
+
+sed -i~ '/^DR_WORLD_NAME=/s/=.*/=reinvent_base/' worker-2.env 
